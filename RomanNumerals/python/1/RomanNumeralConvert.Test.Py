@@ -12,13 +12,10 @@ class RomanNumerals:
             return self.convert(closest_arabic) + self.convert(arabic-closest_arabic)
 
     def _closest_arabic_number_with_numeral(self, arabic):
-        current_arabic = arabic
-        while current_arabic > 0:
-            if current_arabic in self._arabic_to_numeral_mappings:
-                break
-            else:
-                current_arabic -= 1 
-        return current_arabic
+        return next(matching_arabic 
+            for matching_arabic 
+            in self._arabic_to_numeral_mappings 
+            if arabic / matching_arabic >= 1)
 
 
 class RomanNumeralConvertorTest(unittest.TestCase):
