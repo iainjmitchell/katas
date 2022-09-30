@@ -28,26 +28,26 @@ func FuzzStraightConversions(fuzzyTest *testing.F) {
 	}
 	fuzzyTest.Fuzz(func(test *testing.T, testInput int) {
 		var expected string = arabicToRomanMappings[testInput]
-		assert.Equal(test, expected, ToRoman(arabicToRomanMappings, testInput))
+		assert.Equal(test, expected, ToRoman(&arabicToRomanMappings, testInput))
 	})
 }
 
 func TestTwoReturnsII(test *testing.T) {
-	assert.Equal(test, "II", ToRoman(arabicToRomanMappings, 2))
+	assert.Equal(test, "II", ToRoman(&arabicToRomanMappings, 2))
 }
 
 func TestThreeReturnsIII(test *testing.T) {
-	assert.Equal(test, "III", ToRoman(arabicToRomanMappings, 3))
+	assert.Equal(test, "III", ToRoman(&arabicToRomanMappings, 3))
 }
 
 func TestThirtyReturnsXXX(test *testing.T) {
-	assert.Equal(test, "XXX", ToRoman(arabicToRomanMappings, 30))
+	assert.Equal(test, "XXX", ToRoman(&arabicToRomanMappings, 30))
 }
 
 func TestThirtyOneReturnsXXXI(test *testing.T) {
-	assert.Equal(test, "XXXI", ToRoman(arabicToRomanMappings, 31))
+	assert.Equal(test, "XXXI", ToRoman(&arabicToRomanMappings, 31))
 }
 
 func Test1999ReturnsMCMXCIX(test *testing.T) {
-	assert.Equal(test, "MCMXCIX", ToRoman(arabicToRomanMappings, 1999))
+	assert.Equal(test, "MCMXCIX", ToRoman(&arabicToRomanMappings, 1999))
 }
